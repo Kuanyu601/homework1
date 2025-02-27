@@ -29,23 +29,25 @@
                 overflow: hidden; /* 禁止滾動 */
             }
 
-
+            :root {
+                --move-down: 110px; /* 可以調整這個值來決定移動距離 */
+            }
 
             h1 {
                 position: absolute;
-                top: 20%; /* 讓 h1 位於螢幕 20% 高度 */
+                top: 12%; /* 讓 h1 位於螢幕 20% 高度 */
                 left: 50%;
                 transform: translateX(-50%);
                 font-size: 5em; /* 放大字體 */
                 font-weight: bold;
                 text-align: center;
                 margin: 0;
-                color: #080808
+                color: #5a5858
             }
 
-            h2 {
+            .hsr h2 {
                 position: absolute;
-                top: 65%; /* 讓 h2 位於螢幕 40% 高度 */
+                top: calc(65% + var(--move-down)); /* 讓 h2 位於螢幕 65% 高度 */
                 left: 74%;
                 transform: translateX(-50%);
                 font-size: 2em; /* 放大字體 */
@@ -55,9 +57,9 @@
                 color: #696969;
             }
 
-            h3 {
+            .hsr h3 {
                 position: absolute;
-                top: 66.3%; /* 讓 h3 位於螢幕 60% 高度 */
+                top: calc(66.3% + var(--move-down)); /* 讓 h3 位於螢幕 66.3% 高度 */
                 left: 50%;
                 transform: translateX(-50%);
                 font-size: 1em; /* 放大字體 */
@@ -70,31 +72,55 @@
 
             .hsr img{
                 position: absolute;
-                top: 60%; /* 讓圖片位於螢幕 75% 高度 */
+                top: calc(60% + var(--move-down)); /* 讓圖片位於螢幕 60% 高度 */
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 65%;
+
+
             }
+
 
             .logo img{
                 position: absolute;
-                top: 85%; /* 讓圖片位於螢幕 75% 高度 */
+                top: 90%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 10%;
             }
+
+            .ticket img{
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 25%;
+                border-radius: 12px;
+                border: 2px solid #d3d3d3;
+
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .ticket h1{}
+            .ticket h2{}
         </style>
 
     </head>
     <body>
         <h1><em>Loading... Please wait.</em></h1>
-        <h2><em>40%</em></h2>
-        <h3>付款中請勿退出網頁</h3>
+
         <div class = "hsr">
             <img src="img/HSR.png" alt="HSR" >
+            <h2><em>40%</em></h2>
+            <h3>付款中請勿退出網頁</h3>
         </div>
         <div class = "logo">
             <img src="img/logo.png" alt="logo" >
+        </div>
+        <div class = "ticket">
+            <img src = "img/ticket.png" alt = "ticket>">
+            <h1><</h1>
+            <h2>></h2>
         </div>
 
     </body>
