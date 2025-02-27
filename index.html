@@ -10,10 +10,11 @@
 
         <style>
             html {
-                -webkit-text-size-adjust: 100%;  /* iOS Safari 禁用文字縮放 */
-                -ms-text-size-adjust: 100%;      /* 微軟 Edge 禁用文字縮放 */
-                text-size-adjust: 100%;          /* 通用禁用文字縮放 */
+                -webkit-text-size-adjust: 100%;  /* 禁止iOS Safari自動調整文字大小 */
+                -ms-text-size-adjust: 100%;      /* 禁止微軟Edge自動調整文字大小 */
+                text-size-adjust: 100%;          /* 禁止所有瀏覽器自動調整文字大小 */
             }
+
 
             body {
                 background-color: #f0f0f0;
@@ -30,20 +31,11 @@
             }
 
             :root {
-                --move-down: 110px; /* 可以調整這個值來決定移動距離 */
+                --move-down: 48px; /* 可以調整這個值來決定移動距離 */
+                --move-up: -35px;
             }
 
-            h1 {
-                position: absolute;
-                top: 12%; /* 讓 h1 位於螢幕 20% 高度 */
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 5em; /* 放大字體 */
-                font-weight: bold;
-                text-align: center;
-                margin: 0;
-                color: #5a5858
-            }
+
 
             .hsr h2 {
                 position: absolute;
@@ -81,17 +73,11 @@
             }
 
 
-            .logo img{
-                position: absolute;
-                top: 90%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 10%;
-            }
+
 
             .ticket img{
                 position: absolute;
-                top: 45%;
+                top: calc(45% + var(--move-up));
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 25%;
@@ -101,26 +87,154 @@
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
 
-            .ticket h1{}
-            .ticket h2{}
+            .ticket h1, .ticket h2 {
+                font-family: Arial, sans-serif;
+                line-height: 1;
+            }
+
+
+            .ticket h1{
+                position: absolute;
+                top: calc(45% + var(--move-up));
+                left: 33%;
+                transform: translate(-50%, -50%);
+                font-size: 2em;
+                font-weight: bold;
+                color: #d3d3d3;
+            }
+            .ticket h2{
+                position: absolute;
+                top: calc(44% + var(--move-up));
+                left: 67%;
+                transform: translate(-50%, -50%);
+                font-size: 2em;
+                font-weight: bold;
+                color: #d3d3d3;
+            }
+
+            .box {
+                position: absolute;
+                top: 0;
+                width: 100%;   /* 設定寬度 */
+                height: 65px;    /* 設定高度 */
+
+                color: azure;/* 黑色邊框 */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .box img{
+                position: absolute;
+                top: 50%;
+                left: 5%;
+                transform: translate(-50%, -50%);
+                width: 130px;
+            }
+
+            .check{
+                position: absolute;
+                top: 10%;
+                left: 28%;
+                font-size: 1.2em;
+                font-family:Arial, sans-serif;
+            }
+
+            .check h5{
+                display: inline;
+                margin-right: 20px;
+                color: #d3d3d3;
+            }
+
+            .check h5:nth-child(1) {
+                color: #171717;   /* 第1個 h5 顯示紅色 */
+            }
+
+            .check h5:nth-child(2) {
+                color: #171717;  /* 第2個 h5 顯示藍色 */
+            }
+
+            .check h5:nth-child(3) {
+                color: #171717; /* 第3個 h5 顯示綠色 */
+            }
+
+            .notes {
+                position: absolute;
+                border: 1px solid #d3d3d3; /* 設置邊框為深灰色，寬度為 2px */
+                padding: 20px; /* 內邊距，讓內容不會貼邊 */
+                width: 47%;
+                top: 75%;
+                margin: 20px 0; /* 外邊距，避免與其他元素重疊 */
+                background-color: #f5f5f5; /* 背景顏色 */
+                border-radius: 8px; /* 圓角效果，讓框框邊角圓潤 */
+                 /* 添加陰影效果，增加層次感 */
+            }
+
+            .notes h2 {
+                margin-top: 0; /* 去掉標題與框頂部的間距 */
+                color: #333; /* 標題顏色 */
+                font-size: 1.2em; /* 標題文字大小 */
+            }
+
+            .notes h4 {
+                margin: 10px 0; /* 設置每個段落之間的間距 */
+                color: #666; /* 文字顏色 */
+                font-size: 0.95em; /* 文字大小 */
+                line-height: 1; /* 行間距，讓內容更清晰 */
+            }
+
+
+            .pay {
+                position: absolute;
+                top: 14%;
+                font-size: 1.5em;
+                color: #3d3c3c;
+
+
+            }
+
+
+
+
+
+
         </style>
 
     </head>
     <body>
-        <h1><em>Loading... Please wait.</em></h1>
+
 
         <div class = "hsr">
             <img src="img/HSR.png" alt="HSR" >
             <h2><em>40%</em></h2>
-            <h3>付款中請勿退出網頁</h3>
+            <h3>付款中請勿關閉瀏覽器</h3>
         </div>
-        <div class = "logo">
-            <img src="img/logo.png" alt="logo" >
-        </div>
+
         <div class = "ticket">
             <img src = "img/ticket.png" alt = "ticket>">
             <h1><</h1>
             <h2>></h2>
+        </div>
+
+        <div class = "box">
+            <img src="img/logo.png" alt="logo" >
+        </div>
+
+        <div class = "check">
+            <h5>1.查詢車次 - </h5>
+            <h5>2.選擇座位 - </h5>
+            <h5>3.付款 - </h5>
+            <h5>4.取票資訊 - </h5>
+            <h5>5.完成訂位</h5>
+        </div>
+
+        <div class = "notes">
+            <h2>注意事項</h2>
+            <h4>1.本網頁顯示內容為目前於訂位系統搜尋到的可訂車次及票價，實際訂位結果仍以「完成訂位」頁面之內容為主。</h4>
+            <h4>2.列車時刻及優惠資訊若有更動，以各車站現場公告為準。</h4>
+            <h4>3.「早鳥優惠」及「大學生優惠」表示該車次標準車廂對號座享有全票、大學生票之票價折扣優惠，詳細內容請洽台灣高鐵企業網站。</h4>
+        </div>
+
+        <div class = "pay">
+            <h2>正在付款...</h2>
         </div>
 
     </body>
