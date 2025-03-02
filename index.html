@@ -122,12 +122,14 @@
 
             .notes h2 {
                 margin-top: 0; /* 去掉標題與框頂部的間距 */
+                margin-left: 3%;
                 color: #333; /* 標題顏色 */
                 font-size: 1.2em; /* 標題文字大小 */
             }
 
             .notes h4 {
                 margin: 10px 0; /* 設置每個段落之間的間距 */
+                margin-left: 3%;
                 color: #666; /* 文字顏色 */
                 font-size: 1em; /* 文字大小 */
                 line-height: 1; /* 行間距，讓內容更清晰 */
@@ -188,7 +190,7 @@
         <div class = "hsr">
             <img src="img/HSR.png" alt="HSR" >
             <h2><em>40%</em></h2>
-            <h3>維護中請耐心等候，感謝您的配合</h3>
+            <h3>請耐心等候，感謝您的配合</h3>
         </div>
 
 
@@ -208,7 +210,7 @@
 
         <div class = "notes">
             <h2>注意事項</h2>
-            <h4>1. 系統暫時無法使用，請稍後再試。實際訂位結果請以『完成訂位』頁面為準。</h4>
+            <h4>1. 系統暫時無法使用，請稍後再試。實際訂位結果請以「完成訂位」頁面為準。</h4>
             <h4>2. 請勿重複操作，避免造成額外的負擔或錯誤交易</h4>
             <h4>3. 避免同時開啟多個裝置或瀏覽器分頁，可能影響系統回應。</h4>
         </div>
@@ -220,15 +222,7 @@
 
         <div class="loader"></div>
 
-        <script>
-            let dots = 0;
-            function updateText() {
-                const textElement = document.getElementById("pay-text");
-                dots = (dots + 1) % 4;  // 讓點數在 0、1、2、3 之間循環
-                textElement.textContent = "正在等待" + ".".repeat(dots);  // 重複 dots 個「.」
-            }
-            setInterval(updateText, 500);  // 每 500ms 更新一次
-        </script>
+
 
     </body>
 </html>
