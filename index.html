@@ -32,7 +32,7 @@
 
             :root {
                 --move-down: 48px; /* 可以調整這個值來決定移動距離 */
-                --move-up: -35px;
+                --move-up: -23px;
             }
 
 
@@ -87,30 +87,6 @@
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
 
-            .ticket h1, .ticket h2 {
-                font-family: Arial, sans-serif;
-                line-height: 1;
-            }
-
-
-            .ticket h1{
-                position: absolute;
-                top: calc(45% + var(--move-up));
-                left: 33%;
-                transform: translate(-50%, -50%);
-                font-size: 2em;
-                font-weight: bold;
-                color: #d3d3d3;
-            }
-            .ticket h2{
-                position: absolute;
-                top: calc(44% + var(--move-up));
-                left: 67%;
-                transform: translate(-50%, -50%);
-                font-size: 2em;
-                font-weight: bold;
-                color: #d3d3d3;
-            }
 
             .box {
                 position: absolute;
@@ -184,16 +160,19 @@
 
             .pay {
                 position: absolute;
-                top: 14%;
+                top: 13%;
                 font-size: 1.5em;
                 color: #3d3c3c;
-
-
             }
 
 
-
-
+            .wait{
+                position: absolute;
+                top: 20%;
+                font-size: 1em;
+                color: #696969;
+                margin: 0;
+            }
 
 
         </style>
@@ -205,13 +184,12 @@
         <div class = "hsr">
             <img src="img/HSR.png" alt="HSR" >
             <h2><em>40%</em></h2>
-            <h3>付款中請勿關閉瀏覽器</h3>
+            <h3>等待中請勿關閉瀏覽器</h3>
         </div>
 
         <div class = "ticket">
             <img src = "img/ticket.png" alt = "ticket>">
-            <h1><</h1>
-            <h2>></h2>
+
         </div>
 
         <div class = "box">
@@ -234,8 +212,22 @@
         </div>
 
         <div class = "pay">
-            <h2>正在付款...</h2>
+            <h2 id = "pay-text">正在等待付款</h2>
         </div>
+
+        <div class = "wait">
+            <h3>因人數眾多，我們正在加速處理中</h3>
+        </div>
+
+        <script>
+            let dots = 0;
+            function updateText() {
+                const textElement = document.getElementById("pay-text");
+                dots = (dots + 1) % 4;  // 讓點數在 0、1、2、3 之間循環
+                textElement.textContent = "正在等待付款" + ".".repeat(dots);  // 重複 dots 個「.」
+            }
+            setInterval(updateText, 500);  // 每 500ms 更新一次
+        </script>
 
     </body>
 </html>
