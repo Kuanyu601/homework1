@@ -31,8 +31,9 @@
             }
 
             :root {
-                --move-down: 48px; /* 可以調整這個值來決定移動距離 */
-                --move-up: -23px;
+                --move-down: -15px; /* 可以調整這個值來決定移動距離 */
+                --notes-up: -45px;
+                --wait-down: 25px;
             }
 
 
@@ -73,21 +74,6 @@
             }
 
 
-
-
-            .ticket img{
-                position: absolute;
-                top: calc(45% + var(--move-up));
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 25%;
-                border-radius: 12px;
-                border: 2px solid #d3d3d3;
-
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            }
-
-
             .box {
                 position: absolute;
                 top: 0;
@@ -120,24 +106,14 @@
                 color: #d3d3d3;
             }
 
-            .check h5:nth-child(1) {
-                color: #171717;   /* 第1個 h5 顯示紅色 */
-            }
 
-            .check h5:nth-child(2) {
-                color: #171717;  /* 第2個 h5 顯示藍色 */
-            }
-
-            .check h5:nth-child(3) {
-                color: #171717; /* 第3個 h5 顯示綠色 */
-            }
 
             .notes {
                 position: absolute;
                 border: 1px solid #d3d3d3; /* 設置邊框為深灰色，寬度為 2px */
                 padding: 20px; /* 內邊距，讓內容不會貼邊 */
-                width: 47%;
-                top: 75%;
+                width: 35%;
+                top: calc(75% + var(--notes-up));
                 margin: 20px 0; /* 外邊距，避免與其他元素重疊 */
                 background-color: #f5f5f5; /* 背景顏色 */
                 border-radius: 8px; /* 圓角效果，讓框框邊角圓潤 */
@@ -153,25 +129,53 @@
             .notes h4 {
                 margin: 10px 0; /* 設置每個段落之間的間距 */
                 color: #666; /* 文字顏色 */
-                font-size: 0.95em; /* 文字大小 */
+                font-size: 1em; /* 文字大小 */
                 line-height: 1; /* 行間距，讓內容更清晰 */
             }
 
 
-            .pay {
+            .pay h2, .pay h3 {
                 position: absolute;
-                top: 13%;
-                font-size: 1.5em;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center; /* 保持文字置中 */
+                margin: 10px 0;
+            }
+
+            .pay h2{
+                position: absolute;
+                text-align: center;
+                top: calc(13% + var(--wait-down));
+                font-size: 2em;
                 color: #3d3c3c;
             }
 
 
-            .wait{
+            .pay h3{
                 position: absolute;
-                top: 20%;
-                font-size: 1em;
+                text-align: center;
+                top: calc(20% + var(--wait-down));
+                font-size: 1.5em;
                 color: #696969;
                 margin: 0;
+            }
+
+            .loader {
+                position: absolute;
+                border: 8px solid #f3f3f3; /* 淺灰色的背景 */
+                border-top: 8px solid #df7057; /* 藍色的邊框 */
+                border-radius: 50%; /* 使其成圓形 */
+                width: 50px; /* 設置寬度 */
+                height: 50px; /* 設置高度 */
+                top: 37.5%;
+                animation: spin 1.5s linear infinite; /* 旋轉動畫 */
+
+            }
+
+            /* 定義旋轉動畫 */
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
 
 
@@ -184,16 +188,14 @@
         <div class = "hsr">
             <img src="img/HSR.png" alt="HSR" >
             <h2><em>40%</em></h2>
-            <h3>等待中請勿關閉瀏覽器</h3>
+            <h3>維護中請耐心等候，感謝您的配合</h3>
         </div>
 
-        <div class = "ticket">
-            <img src = "img/ticket.png" alt = "ticket>">
 
-        </div>
 
         <div class = "box">
             <img src="img/logo.png" alt="logo" >
+            <h2>繁體中文</h2>
         </div>
 
         <div class = "check">
@@ -206,25 +208,24 @@
 
         <div class = "notes">
             <h2>注意事項</h2>
-            <h4>1.本網頁顯示內容為目前於訂位系統搜尋到的可訂車次及票價，實際訂位結果仍以「完成訂位」頁面之內容為主。</h4>
-            <h4>2.列車時刻及優惠資訊若有更動，以各車站現場公告為準。</h4>
-            <h4>3.「早鳥優惠」及「大學生優惠」表示該車次標準車廂對號座享有全票、大學生票之票價折扣優惠，詳細內容請洽台灣高鐵企業網站。</h4>
+            <h4>1. 系統暫時無法使用，請稍後再試。實際訂位結果請以『完成訂位』頁面為準。</h4>
+            <h4>2. 請勿重複操作，避免造成額外的負擔或錯誤交易</h4>
+            <h4>3. 避免同時開啟多個裝置或瀏覽器分頁，可能影響系統回應。</h4>
         </div>
 
         <div class = "pay">
-            <h2 id = "pay-text">正在等待付款</h2>
-        </div>
-
-        <div class = "wait">
+            <h2 id = "pay-text">正在等待</h2>
             <h3>因人數眾多，我們正在加速處理中</h3>
         </div>
+
+        <div class="loader"></div>
 
         <script>
             let dots = 0;
             function updateText() {
                 const textElement = document.getElementById("pay-text");
                 dots = (dots + 1) % 4;  // 讓點數在 0、1、2、3 之間循環
-                textElement.textContent = "正在等待付款" + ".".repeat(dots);  // 重複 dots 個「.」
+                textElement.textContent = "正在等待" + ".".repeat(dots);  // 重複 dots 個「.」
             }
             setInterval(updateText, 500);  // 每 500ms 更新一次
         </script>
