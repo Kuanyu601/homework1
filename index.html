@@ -222,6 +222,20 @@
 
         <div class="loader"></div>
 
+        <script>
+            let dots = 0;
+            function updateText() {
+                const textElement = document.getElementById("pay-text");
+                if (!textElement) return; // 確保元素存在
+                dots = (dots + 1) % 4;  // 讓點數在 0、1、2、3 之間循環
+                textElement.textContent = "正在等待" + ".".repeat(dots);  // 重複 dots 個「.」
+            }
+            setInterval(updateText, 500);  // 每 500ms 更新一次
+
+        </script>
+
+
+
 
 
     </body>
