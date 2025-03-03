@@ -33,10 +33,21 @@
             :root {
                 --move-down: -15px; /* 可以調整這個值來決定移動距離 */
                 --notes-up: -45px;
-                --wait-down: 25px;
+                --wait-down: 30px;
             }
 
 
+
+            .block {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 24.415%;   /* 設定寬度 */
+                height: 25%;    /* 設定高度 */
+                background-color: #f0f0f0; /* 背景顏色 */
+                color: azure;/* 黑色邊框 */
+                z-index: 9999;
+            }
 
             .hsr h2 {
                 position: absolute;
@@ -63,15 +74,42 @@
             }
 
 
-            .hsr img{
+            .hsr img:first-of-type {
+                /* 第一張圖片 (鐵軌) 不動 */
                 position: absolute;
-                top: calc(60% + var(--move-down)); /* 讓圖片位於螢幕 60% 高度 */
+                top: calc(60% + var(--move-down));
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 65%;
-
-
             }
+
+            .train {
+                /* 第二張圖片 (高鐵) 移動 */
+                position: absolute;
+                top: calc(60% + var(--move-down));
+                left: -34%;
+                transform: translateY(-50%);
+                width: 65%;
+                animation: slide-right 6s linear infinite;
+                clip-path: inset(0 0 0 0%);
+            }
+
+            @keyframes slide-right {
+                0% {
+                    left: -34%;
+                    clip-path: inset(0 0 0 89%);
+                }
+                50% {
+                    left: 8%;
+                    clip-path: inset(0 0 0 25%);
+                }
+                100% {
+                    left: 18%;
+                    clip-path: inset(0 0 0 0%);
+                }
+            }
+
+
 
 
             .box {
@@ -169,7 +207,7 @@
                 border-radius: 50%; /* 使其成圓形 */
                 width: 50px; /* 設置寬度 */
                 height: 50px; /* 設置高度 */
-                top: 37.5%;
+                top: 37%;
                 animation: spin 1.5s linear infinite; /* 旋轉動畫 */
 
             }
@@ -181,15 +219,22 @@
             }
 
 
+
+
         </style>
 
     </head>
     <body>
 
+        <div class = "block"></div>
+
 
         <div class = "hsr">
-            <img src="img/HSR.png" alt="HSR" >
-            <h2><em>40%</em></h2>
+            <div class="mask"></div>
+            <img src="img/rail.png" alt="鐵軌" class="rail">
+            <img src="img/hsrrrrr.png" alt="高鐵" class="train">
+
+
             <h3>請耐心等候，感謝您的配合</h3>
         </div>
 
@@ -222,6 +267,8 @@
 
         <div class="loader"></div>
 
+
+
         <script>
             let dots = 0;
             function updateText() {
@@ -231,6 +278,10 @@
                 textElement.textContent = "正在等待" + ".".repeat(dots);  // 重複 dots 個「.」
             }
             setInterval(updateText, 500);  // 每 500ms 更新一次
+
+
+
+
 
         </script>
 
