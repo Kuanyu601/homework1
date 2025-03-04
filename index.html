@@ -33,7 +33,7 @@
             :root {
                 --move-down: -15px; /* 可以調整這個值來決定移動距離 */
                 --notes-up: -45px;
-                --wait-down: 30px;
+                --wait-down: 42px;
             }
 
 
@@ -195,7 +195,7 @@
                 position: absolute;
                 text-align: center;
                 top: calc(20% + var(--wait-down));
-                font-size: 1.5em;
+                font-size: 1.3em;
                 color: #696969;
                 margin: 0;
             }
@@ -261,7 +261,7 @@
         </div>
 
         <div class = "pay">
-            <h2 id = "pay-text">正在等待</h2>
+            <h2 id = "pay-text">系統繁忙，請稍候</h2>
             <h3>因人數眾多，我們正在加速處理中</h3>
         </div>
 
@@ -269,21 +269,6 @@
 
 
 
-        <script>
-            let dots = 0;
-            function updateText() {
-                const textElement = document.getElementById("pay-text");
-                if (!textElement) return; // 確保元素存在
-                dots = (dots + 1) % 4;  // 讓點數在 0、1、2、3 之間循環
-                textElement.textContent = "正在等待" + ".".repeat(dots);  // 重複 dots 個「.」
-            }
-            setInterval(updateText, 500);  // 每 500ms 更新一次
-
-
-
-
-
-        </script>
 
 
 
