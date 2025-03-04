@@ -6,8 +6,6 @@
 
         <title>Homework1</title>
 
-
-
         <style>
             html {
                 -webkit-text-size-adjust: 100%;  /* 禁止iOS Safari自動調整文字大小 */
@@ -36,9 +34,8 @@
                 --wait-down: 42px;
             }
 
-
-
-            .block {
+            /*高鐵動畫*/
+            .mask {
                 position: absolute;
                 top: 50%;
                 left: 0;
@@ -47,18 +44,6 @@
                 background-color: #f0f0f0; /* 背景顏色 */
                 color: azure;/* 黑色邊框 */
                 z-index: 9999;
-            }
-
-            .hsr h2 {
-                position: absolute;
-                top: calc(65% + var(--move-down)); /* 讓 h2 位於螢幕 65% 高度 */
-                left: 74%;
-                transform: translateX(-50%);
-                font-size: 2em; /* 放大字體 */
-                font-weight: bold;
-                text-align: center;
-                margin: 0;
-                color: #696969;
             }
 
             .hsr h3 {
@@ -72,7 +57,6 @@
                 margin: 0;
                 color: #696969;
             }
-
 
             .hsr img:first-of-type {
                 /* 第一張圖片 (鐵軌) 不動 */
@@ -111,7 +95,6 @@
 
 
 
-
             .box {
                 position: absolute;
                 top: 0;
@@ -145,7 +128,7 @@
             }
 
 
-
+            /*注意事項*/
             .notes {
                 position: absolute;
                 border: 1px solid #d3d3d3; /* 設置邊框為深灰色，寬度為 2px */
@@ -174,7 +157,7 @@
             }
 
 
-            .pay h2, .pay h3 {
+            .busy h2, .busy h3 {
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
@@ -182,7 +165,7 @@
                 margin: 10px 0;
             }
 
-            .pay h2{
+            .busy h2{
                 position: absolute;
                 text-align: center;
                 top: calc(13% + var(--wait-down));
@@ -191,7 +174,7 @@
             }
 
 
-            .pay h3{
+            .busy h3{
                 position: absolute;
                 text-align: center;
                 top: calc(20% + var(--wait-down));
@@ -200,6 +183,8 @@
                 margin: 0;
             }
 
+
+            /*loading動畫*/
             .loader {
                 position: absolute;
                 border: 8px solid #f3f3f3; /* 淺灰色的背景 */
@@ -226,18 +211,12 @@
     </head>
     <body>
 
-        <div class = "block"></div>
-
-
         <div class = "hsr">
             <div class="mask"></div>
             <img src="img/rail.png" alt="鐵軌" class="rail">
             <img src="img/hsrrrrr.png" alt="高鐵" class="train">
-
-
             <h3>請耐心等候，感謝您的配合</h3>
         </div>
-
 
 
         <div class = "box">
@@ -260,19 +239,12 @@
             <h4>3. 避免同時開啟多個裝置或瀏覽器分頁，可能影響系統回應。</h4>
         </div>
 
-        <div class = "pay">
-            <h2 id = "pay-text">系統繁忙，請稍候</h2>
+        <div class = "busy">
+            <h2>系統繁忙，請稍候</h2>
             <h3>因人數眾多，我們正在加速處理中</h3>
         </div>
 
         <div class="loader"></div>
-
-
-
-
-
-
-
 
     </body>
 </html>
